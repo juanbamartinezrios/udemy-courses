@@ -1,0 +1,333 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+	// single lined comment
+	font: 100% $font-stack;
+	/* multi-lined comment */
+	color: $primary-color;
+}
+
+/* DATATYPE */
+// null
+$i-am-null: null;
+
+// boolean
+$i-am-true: true;
+$i-am-false: false;
+
+// number
+$a-number: 7;
+
+// string
+$name: 'Juanbita';
+$name-together: 'Juan' + 'Bautista';
+
+// color
+$color: lighten(white, 15%);
+$venus: #998099;
+
+/* OPERATORS */
+h1 {
+	font-size: 4px + 2;
+}
+
+h2 {
+	font-size: 4px - 2;
+}
+
+h3 {
+	font-size: (10/2);
+	opacity: random(4) / 5;
+	padding-right: 2px / 4px + 3px;
+}
+
+h4 {
+	width: 3px * 5 + 5px;
+	width: 3 * (5px + 5px);
+	width: 3px + (6px / 2) * 3;
+}
+
+/* QUALITY OPERATORS */
+@mixin font-fl($font) {
+	&:after {
+		@if (type-of($font) == string) {
+			content: 'My font is: #{$font}.';
+		} @else {
+			content: 'Sorry, the argument #{$font} is a #{type-of($font)}.';
+		}
+	}
+}
+
+h2 {
+	@include font-fl(sans-serif);
+}
+
+/* COMPARISON OPERATORS */
+$padding: 50px;
+
+h2 {
+	@if ($padding <= 20px) {
+		padding: $padding;
+	} @else {
+		padding: $padding / 2;
+	}
+}
+
+@import "partials/_reset";
+#main {
+	@import "partials/_buttons";
+}
+
+/* MIXINS 
+Grupo de propiedades de css que se quieren reutilizar
+*/
+
+$font-base: 16px;
+
+@mixin sample {
+	font-size: $font-base;
+}
+
+@mixin large-text {
+	font: {
+		family: Arial;
+		size: 20px;
+		weight: bold;
+	}
+	color: #FF0000;
+}
+
+@mixin silly-links {
+	a {
+		color: blue;
+		background-color: red;
+	}
+}
+
+p {
+	@include sample;
+}
+
+h1 {
+	@include large-text;
+}
+
+@include silly-links;
+
+@mixin compound {
+	@include highlighted-back;
+	@include header-text;
+}
+
+@mixin highlighted-back {
+	background-color: #FC0;
+}
+
+@mixin header-text {
+	font-size: 25px;
+}
+
+h4 {
+	@include compound;
+}
+
+@mixin linkx($link, $visit, $hover, $active) {
+	a {
+		color: $link;
+		&:visited {
+			color: $visit;
+		}
+		&:hover {
+			color: $hover;
+		}
+		&:active {
+			color: $active;
+		}
+	}
+}
+
+#main {
+	@include linkx(white, blue, green, red);
+}
+
+@mixin box-shadow($shadows...) {
+	-moz-box-shadow: $shadows;
+	-webkit-box-shadow: $shadows;
+	box-shadow: $shadows;
+}
+
+.shadows {
+	@include box-shadow(0 4px 5px #666, 2px 6px 10px #999);
+}
+
+/* INHERITANCE */
+.message {
+	border: 1px solid #CCC;
+	padding: 10px;
+	color: #333;
+}
+
+.success {
+	@extend .message;
+	border-color: green;
+}
+
+.error {
+	@extend .message;
+	border-color: red;
+}
+
+.warning {
+	@extend .message;
+	border-color: yellow;
+}
+
+// placeholder selector: no se compila pero sí es utilizado
+%foo {
+	color: red;
+}
+
+.bar {
+	@extend %foo;
+	background-color: blue;
+}
+
+.baz {
+	@extend %foo;
+	background-color: yellow;
+}
+
+/* EXTENDED VS MIXIN */
+%hide-text {
+	text-indent: -999px;
+	overflow: hidden;
+}
+
+.foo {
+	@extend %hide-text;
+}
+
+.bar {
+	@extend %hide-text;
+}
+
+.baz {
+	@extend %hide-text;
+}
+
+/* NESTED */
+#main p {
+	color: #00FF00;
+	width: 95%;
+
+	.redbox {
+		background-color: #FF0000;
+		color: #000000;
+	}
+}
+
+a {
+	font-weight: bold;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+	body.firefox & {
+		font-weight: normal;
+	}
+}
+
+#main {
+	color: black;
+	&-sidebar {
+		border: 1px solid;
+	}
+}
+
+/* NESTED PROPERTIES */
+.funky {
+	font: {
+		family: fantasy;
+		size: 30em;
+		weight: bold;
+	}
+}
+
+/* LIST & NTH */
+$background-colors-list: #4BC2A5 #606F40 #6648CA #6B6022 #2F54E9;
+$colors-list: #111 #222 #333 #444 #555;
+
+// @each element in element-list
+@each $current-color in $colors-list {
+	// $var: index(element-list, element);
+	$i: index($colors-list, $current-color);
+	.stuff-#{$i} {
+		color: $current-color;
+		// Para utilizar nth debe haber la misma cantidad de elementos en cada listado
+		background-color: nth($background-colors-list, $i);
+	}
+}
+
+/* MAPS */
+$primary-colors: (
+	"red": "#FF0000",
+	"green": "#00FF00",
+	"blue": "#0000FF"
+);
+
+@each $color in $primary-colors {
+	.thing-#{$color} {
+		content: "#{$color}";
+	}
+}
+
+/* FUNCTIONS */
+p {
+	@if 1+1 == 2 {
+		border: 1px solid blue;
+	}
+}
+
+@mixin test($condicion) {
+	$color: if($condicion, blue, red);
+	color: $color;
+}
+
+.firstClass {
+	@include test(true);
+}
+
+.secondClass {
+	@include test(false);
+}
+
+$type: orc;
+p {
+	@if $type == human {
+		color: blue;
+	} @else if $type == elf {
+		color: red;
+	} @else if $type == monster {
+		color: white;
+	} @else {
+		color: black;
+	}
+}
+
+$people: (user1:bob, user2:john, user3:barbara, user4:mike);
+@each $key, $user in $people {
+	.#{$user}-avatar {
+		background-image: url('/img/#{$user}.png');
+	}
+}
+
+/* WHILE */
+$x: 1;
+
+@while $x < 13 {
+	.col-#{$x} {
+		width: 100/12 * $x;
+	}
+	$x: $x+1;
+}

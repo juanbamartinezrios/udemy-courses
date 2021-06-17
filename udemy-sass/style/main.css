@@ -1,0 +1,265 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  /* multi-lined comment */
+  color: #333; }
+
+/* DATATYPE */
+/* OPERATORS */
+h1 {
+  font-size: 6px; }
+
+h2 {
+  font-size: 2px; }
+
+h3 {
+  font-size: 5;
+  opacity: 0.4;
+  padding-right: 3.5px; }
+
+h4 {
+  width: 20px;
+  width: 30px;
+  width: 12px; }
+
+/* QUALITY OPERATORS */
+h2:after {
+  content: "My font is: sans-serif."; }
+
+/* COMPARISON OPERATORS */
+h2 {
+  padding: 25px; }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+#main .button {
+  background-color: red; }
+
+/* MIXINS 
+Grupo de propiedades de css que se quieren reutilizar
+*/
+p {
+  font-size: 16px; }
+
+h1 {
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FF0000; }
+
+a {
+  color: blue;
+  background-color: red; }
+
+h4 {
+  background-color: #FC0;
+  font-size: 25px; }
+
+#main a {
+  color: white; }
+  #main a:visited {
+    color: blue; }
+  #main a:hover {
+    color: green; }
+  #main a:active {
+    color: red; }
+
+.shadows {
+  -moz-box-shadow: 0 4px 5px #666, 2px 6px 10px #999;
+  -webkit-box-shadow: 0 4px 5px #666, 2px 6px 10px #999;
+  box-shadow: 0 4px 5px #666, 2px 6px 10px #999; }
+
+/* INHERITANCE */
+.message, .success, .error, .warning {
+  border: 1px solid #CCC;
+  padding: 10px;
+  color: #333; }
+
+.success {
+  border-color: green; }
+
+.error {
+  border-color: red; }
+
+.warning {
+  border-color: yellow; }
+
+.bar, .baz {
+  color: red; }
+
+.bar {
+  background-color: blue; }
+
+.baz {
+  background-color: yellow; }
+
+/* EXTENDED VS MIXIN */
+.foo, .bar, .baz {
+  text-indent: -999px;
+  overflow: hidden; }
+
+/* NESTED */
+#main p {
+  color: #00FF00;
+  width: 95%; }
+  #main p .redbox {
+    background-color: #FF0000;
+    color: #000000; }
+
+a {
+  font-weight: bold;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+  body.firefox a {
+    font-weight: normal; }
+
+#main {
+  color: black; }
+  #main-sidebar {
+    border: 1px solid; }
+
+/* NESTED PROPERTIES */
+.funky {
+  font-family: fantasy;
+  font-size: 30em;
+  font-weight: bold; }
+
+/* LIST & NTH */
+.stuff-1 {
+  color: #111;
+  background-color: #4BC2A5; }
+
+.stuff-2 {
+  color: #222;
+  background-color: #606F40; }
+
+.stuff-3 {
+  color: #333;
+  background-color: #6648CA; }
+
+.stuff-4 {
+  color: #444;
+  background-color: #6B6022; }
+
+.stuff-5 {
+  color: #555;
+  background-color: #2F54E9; }
+
+/* MAPS */
+.thing-red #FF0000 {
+  content: "red #FF0000"; }
+
+.thing-green #00FF00 {
+  content: "green #00FF00"; }
+
+.thing-blue #0000FF {
+  content: "blue #0000FF"; }
+
+/* FUNCTIONS */
+p {
+  border: 1px solid blue; }
+
+.firstClass {
+  color: blue; }
+
+.secondClass {
+  color: red; }
+
+p {
+  color: black; }
+
+.bob-avatar {
+  background-image: url("/img/bob.png"); }
+
+.john-avatar {
+  background-image: url("/img/john.png"); }
+
+.barbara-avatar {
+  background-image: url("/img/barbara.png"); }
+
+.mike-avatar {
+  background-image: url("/img/mike.png"); }
+
+/* WHILE */
+.col-1 {
+  width: 8.3333333333; }
+
+.col-2 {
+  width: 16.6666666667; }
+
+.col-3 {
+  width: 25; }
+
+.col-4 {
+  width: 33.3333333333; }
+
+.col-5 {
+  width: 41.6666666667; }
+
+.col-6 {
+  width: 50; }
+
+.col-7 {
+  width: 58.3333333333; }
+
+.col-8 {
+  width: 66.6666666667; }
+
+.col-9 {
+  width: 75; }
+
+.col-10 {
+  width: 83.3333333333; }
+
+.col-11 {
+  width: 91.6666666667; }
+
+.col-12 {
+  width: 100; }
+
+/*# sourceMappingURL=main.css.map */
