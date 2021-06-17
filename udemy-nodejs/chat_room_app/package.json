@@ -1,0 +1,9 @@
+{
+	"name": "chat_room",
+	"version": "0.0.1",
+	"author": "Juan Bautista Martinez Ríos",
+	"dependencies": {
+		"express": "*",
+		"socket.io": "*"
+	}
+}

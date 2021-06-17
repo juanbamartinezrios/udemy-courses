@@ -1,0 +1,45 @@
+* {
+    font-family: Helvetica, Arial, sans-serif !important;
+    background-color: #d03428;
+    line-height: 0.75;
+}
+
+body {
+    margin: 0 auto;
+    padding: 1em 1em 0 1em;
+}
+
+.header {}
+
+.header .title {
+    color: #fcea6a;
+}
+
+.header .subtitle {
+    color: #ffffff;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.content blockquote {
+    border-left: 4px solid #000;
+    padding-left: 1em;
+}
+
+.content p {
+    line-height: 1.25;
+}
+
+#jules {
+    height: 45% !important;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.err {
+    top: 40%;
+    left: 40%;
+    position: absolute;
+}
